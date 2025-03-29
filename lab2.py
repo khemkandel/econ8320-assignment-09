@@ -76,8 +76,10 @@ def map_table(capitals):
     for capital_info in np.array(capitals):
         state = capital_info[2].lower()
         capital= capital_info[1].lower()
-        mean_lat,mean_long = np.mean(np.array(get_cordinates('us',state,capital)),axis=0)
-
+        #mean_lat,mean_long = np.mean(np.array(get_cordinates('us',state,capital)),axis=0)
+        coordinates = get_cordinates('us',state,capital)
+        mean_lat = coordinates[0][0]
+        mean_long = coordinates[0][1]
         city_info = {
             'capital': capital.title(),
             'abbrev': state.upper(),
